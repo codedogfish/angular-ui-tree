@@ -1,0 +1,8 @@
+﻿<ul title="{{treeContent.loading}}">
+    <li class="jstree-initial-node jstree-loading jstree-leaf jstree-last" ng-show="treeContent.loading">
+        <i class="jstree-icon jstree-ocl"></i>
+        <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon-hidden"></i>正在加载 ...</a>
+    </li>
+    <li ng-repeat="item in treeContent" dir-tree-node="item" options="options" is-last="$index==treeContent.length-1">
+    </li>
+</ul>

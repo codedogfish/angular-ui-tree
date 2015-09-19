@@ -1,0 +1,31 @@
+﻿<div class="tree-folder" ng-class="{'tree-no-children':!(treeNode.children)}">
+    <div class="tree-folder-header" ng-class="{'tree-selected':treeNode.active}" ng-click="active($event)">
+        <i ng-class="{'fa fa-folder':!treeNode.open,'fa fa-folder-open':treeNode.open}" ng-hide="!treeNode.children" ng-click="toggle($event)"></i>
+        <div class="tree-folder-name">
+            <!--<div class="checker" ng-show="options.nodeSelect" ng-click="options.nodeSelect(treeNode)">
+                <span ng-class="{'checked':treeNode.checked}">
+                    <input type="checkbox" ng-model="treeNode.checked" />
+                </span>
+            </div>-->
+            <div class="checker" ng-show="options.nodeSelect" ng-click="$event.stopPropagation();select()" ng-show="options.nodeOptions">
+                <span ng-class="treeNode.select">
+                </span>
+            </div>
+            <i class="fa" ng-class="options.nodeIcons[treeNode.type]"></i>
+            {{treeNode.name}}
+            <div class="tree-actions">
+                <i class="fa fa-plus" title="添加" ng-show="options.nodeAdd&&!treeNode.hide.add" ng-click="options.nodeAdd(treeNode,$event)"></i>
+                <i class="fa fa fa-edit" title="修改" ng-show="options.nodeEdit&&!treeNode.hide.edit" ng-click="options.nodeEdit(treeNode,$event)"></i>
+                <i class="fa fa-trash-o" title="删除" ng-show="options.nodeRemove&&!treeNode.hide.remove" ng-click="options.nodeRemove(treeNode,$event)"></i>
+                <i class="fa fa-refresh" title="刷新" ng-show="options.nodeRefresh&&!treeNode.hide.refresh" ng-click="options.nodeRefresh(treeNode,$event)"></i>
+                <i class="fa" title="{{action.display}}" ng-repeat="action in options.nodeActions" ng-hide="treeNode.hide[action.name]" ng-click="action.click(treeNode,$event)" ng-class="action.icon"></i>
+            </div>
+        </div>
+    </div>
+    <div class="tree-folder-content" ng-show="treeNode.open">
+        <div class="dir-tree-container"></div>
+    </div>
+    <div class="tree-loader" ng-show="treeNode.loading">
+        <img ng-src="{{BaseUrl}}/content/assets/img/input-spinner.gif">
+    </div>
+</div>

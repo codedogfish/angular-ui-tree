@@ -1,0 +1,24 @@
+﻿<li class="jstree-node" ng-class="{'jstree-open':(treeNode.children && treeNode.open),'jstree-closed':(treeNode.children && !treeNode.open),'jstree-leaf':!treeNode.children,'jstree-last':treeNode.isLast}">
+    <a class="move-target-sibling"></a>
+    <i class="jstree-icon jstree-ocl" ng-click="toggle($event)"></i>
+    <a class="jstree-anchor" ng-class="{'jstree-clicked':treeNode.active}" ng-click="active($event)">
+        <div class="checker" ng-show="options.nodeSelect" ng-click="$event.stopPropagation();select()" ng-show="options.nodeOptions">
+            <span ng-class="treeNode.select">
+            </span>
+        </div>
+        <i class="fa" ng-class="options.nodeIcons[treeNode.type]"></i>
+        {{treeNode.name}}
+        <div class="tree-actions">
+            <i class="fa fa-plus" title="添加" ng-show="options.nodeAdd&&!treeNode.hide.add" ng-click="options.nodeAdd(treeNode,$event)"></i>
+            <i class="fa fa fa-edit" title="修改" ng-show="options.nodeEdit&&!treeNode.hide.edit" ng-click="options.nodeEdit(treeNode,$event)"></i>
+            <i class="fa fa-trash-o" title="删除" ng-show="options.nodeRemove&&!treeNode.hide.remove" ng-click="options.nodeRemove(treeNode,$event)"></i>
+            <i class="fa fa-refresh" title="刷新" ng-show="options.nodeRefresh&&!treeNode.hide.refresh" ng-click="options.nodeRefresh(treeNode,$event)"></i>
+            <i class="fa" title="{{value.display}}" ng-repeat="(key,value) in options.nodeActions" ng-hide="treeNode.hide[key]" ng-click="value.click(treeNode,$event)" ng-class="value.icon"></i>
+        </div>
+        <div class="move-target-child"></div>
+    </a>
+  
+    <ul class="jstree-children dir-tree-container">
+    </ul>
+    <a class="move-target-sibling-last" ng-if="treeNode.isLast"></a>
+</li>
