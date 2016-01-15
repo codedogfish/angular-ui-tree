@@ -9,20 +9,22 @@
  * 新增toggleNode方法、通过node的active和open属性可以设置默认选中和展开
  */
 tree_v = "1.1.5";
-(function (app) {
+(function () {
+    var app = angular.module('angularUiTree',[]);
     app.treeViewOptions = [
-    "nodeRemove",//删除 function(node){}
-    "nodeAdd",//添加 function(node){}
-    "nodeEdit",//添加 function(node){}
-    "nodeRefresh",//刷新 function(node){}
-    "nodeToggle",//展开/闭合 function(node){}
-    "nodeLoad",//展开/闭合 function(node){}
-    "nodeSelect",//选中/取消选中 function(node){}
-    "nodeActive",//选中/取消选中 function(node){}
-    "nodeActions",//自定义 [{icon:'fa-user',click:function(node){}},...]
-    "nodeIcons",//节点图标 {'user':'fa-user',...}
-    "nodeAll",//所有节点
-    "nodeSetting"];//设置 {selectMode: "advanced", expandAll: true, treeConvertorOptions: {}}
+        "nodeRemove",//删除 function(node){}
+        "nodeAdd",//添加 function(node){}
+        "nodeEdit",//添加 function(node){}
+        "nodeRefresh",//刷新 function(node){}
+        "nodeToggle",//展开/闭合 function(node){}
+        "nodeLoad",//展开/闭合 function(node){}
+        "nodeSelect",//选中/取消选中 function(node){}
+        "nodeActive",//选中/取消选中 function(node){}
+        "nodeActions",//自定义 [{icon:'fa-user',click:function(node){}},...]
+        "nodeIcons",//节点图标 {'user':'fa-user',...}
+        "nodeAll",//所有节点
+        "nodeSetting"//设置 {selectMode: "advanced", expandAll: true, treeConvertorOptions: {}}
+    ];
     app.treeViewOptionAbbrs = ["remove", "add", "edit", "refresh", "toggle", "load", "select", "active", "actions", "icons", "all", "setting"];
     app.treeViewDefaultSetting = {
         selectMode: "simple",//simple 简单模式 advanced 高级模式
@@ -68,7 +70,7 @@ tree_v = "1.1.5";
     app.directive('dirTree', ["$compile", function ($compile) {
         return {
             restrict: 'A',
-            templateUrl: app.SpaBaseUrl + '/plugins/tree/templates/' + app.treeTemplate + '/tree.html',
+            templateUrl: '../src/templates/' + app.treeTemplate + '/tree.html',
             scope: app.treeScope,
             link: function (scope, element, attrs) {
 
@@ -143,7 +145,7 @@ tree_v = "1.1.5";
     app.directive('dirTreeContent', function () {
         return {
             restrict: 'A',
-            templateUrl: app.SpaBaseUrl + '/plugins/tree/templates/' + app.treeTemplate + '/treeContent.html',
+            templateUrl: '../src/templates/' + app.treeTemplate + '/treeContent.html',
             scope: app.treeContentScope,
             link: function (scope, element, attrs) {
                 var options = app.treeViewOptions;
@@ -158,7 +160,7 @@ tree_v = "1.1.5";
     app.directive('dirTreeNode', ["$compile", "treeConvertor", function ($compile, treeConvertor) {
         return {
             restrict: 'A',
-            templateUrl: app.SpaBaseUrl + '/plugins/tree/templates/' + app.treeTemplate + '/treeNode.html',
+            templateUrl: '../src/templates/' + app.treeTemplate + '/treeNode.html',
             scope: {
                 treeNode: "=dirTreeNode",
                 options: "=",
@@ -443,4 +445,4 @@ tree_v = "1.1.5";
             }
         };
     });
-})(app);
+})();
