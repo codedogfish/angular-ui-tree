@@ -5,7 +5,7 @@
     "codedogfish <jackcool1989@outlook.com>"
   ],
   "description": "",
-  "main": "",
+  "main": "./src/uiTree.js",
   "moduleType": [],
   "license": "MIT",
   "ignore": [
@@ -16,10 +16,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.8",
-    "es5-shim": "~4.4.1",
-    "json3": "~3.3.2",
-    "jquery": "~2.2.0",
+    "angular": "*",
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "angular": "*",
+    "jquery": "*",
     "bootstrap": "~3.3.6"
   }
 }
