@@ -1,21 +1,28 @@
 angularUiTreeDemo = angular.module("angularUiTreeDemo",["angularUiTree"]);
 angularUiTreeDemo.controller("MainCtrl",function($scope){
+    var test = [];
+    test.abc = 123;
     $scope.treeSource = [
         {
             id: 1,
-            name: 'jack'
+            name: 'jack',
+            isOpen: true,
         },
         {
             id: 2,
             name: 'ivan',
+            isOpen: true,
             children: [
                 {
                     id: 3,
                     name: 'ivan`s son',
+                    isOpen: true,
                     children: [
                         {
                             id: 4,
-                            name: 'ivan`s grandson'
+                            name: 'ivan`s grandson',
+                            isOpen: true,
+                            children: test
                         }
                     ]
                 }
