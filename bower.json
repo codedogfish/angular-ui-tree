@@ -5,6 +5,7 @@
     "codedogfish <jackcool1989@outlook.com>"
   ],
   "description": "",
+  "version": "1.0.0",
   "main": "./src/uiTree.js",
   "moduleType": [],
   "license": "MIT",

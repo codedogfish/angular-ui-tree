@@ -1,15 +1,17 @@
-# angular-ui-tree
-It is a angular directive of tree.
-
-## two way binding
-"Native" directive of tree mean the ui and data is directly two way binding. Not like others are based on JQuery tree plugins.
-
-## template customize
-You can customize the presenation of tree ui, just add or edit the template.
-
-
-
 # Angular-UI-Tree
+
+## use your own data struct
+
+This uiTree not require you to convert your data to some specific struct.
+
+## two way data-binding
+
+"Native" directive of tree mean the ui and data is directly two way binding. Not like others are based on jQuery tree plugins.
+
+## dom customize
+
+You can customize the presenation of tree ui, just create your own dom and add three attributes to make a uiTree.
+
 
 ### 简介
 
@@ -30,13 +32,16 @@ You can customize the presenation of tree ui, just add or edit the template.
 <ul ui-tree="treeSource">
     <li node="item" id="{{item.id}}">
         <span>{{item.name}}</span>
-        <button ng-show="item.children" ng-click="toggle(item);$event.stopPropagation();">open</button>
+        <button ng-show="item.children" ng-click="toggle(item);">open</button>
         <ul node-children="item.children" ng-show="item.isOpen"></ul>
     </li>
 </ul>
 ```
 
 ```
+// you control your own data struct
+// that mean if there is a 'x' field in you model
+// you can just use {{your_variable_name.x}} in the dom
 $scope.treeSource = [
     { id: 1, name: 'jack' },
     { id: 2, name: 'ivan', children: [ { id: 3, name: 'ivan`s son' }, { id: 4, name: 'ivan`s daughter' } ] }
